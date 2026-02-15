@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pkl
+*.pyc
+data/chembl_36_chemreps.txt
+data/chembl_36_chemreps.txt
+venv/
