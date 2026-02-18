@@ -69,12 +69,35 @@ class VinaDocking:
         
         try:
             result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+
+            # Post-process to remove ROOT/ENDROOT/TORSDOF/BRANCH/ENDBRANCH tags if present
+            # These are sometimes added by OpenBabel for rigid molecules but Vina dislikes them in the receptor file
+            self._clean_receptor_pdbqt(output_pdbqt)
+
             print(f"\nReceptor prepared successfully: {output_pdbqt}")
             return output_pdbqt
         except subprocess.CalledProcessError as e:
             print(f"Error preparing receptor: {e}")
             print(f"stderr: {e.stderr}")
             return None
+
+    def _clean_receptor_pdbqt(self, pdbqt_path):
+        """Remove ROOT, ENDROOT, BRANCH, ENDBRANCH, TORSDOF tags from PDBQT"""
+        try:
+            with open(pdbqt_path, 'r') as f:
+                lines = f.readlines()
+
+            cleaned_lines = []
+            for line in lines:
+                if line.startswith(('ROOT', 'ENDROOT', 'BRANCH', 'ENDBRANCH', 'TORSDOF')):
+                    continue
+                cleaned_lines.append(line)
+
+            with open(pdbqt_path, 'w') as f:
+                f.writelines(cleaned_lines)
+
+        except Exception as e:
+            print(f"Warning: Failed to clean receptor PDBQT: {e}")
     
     def create_config_file(self, center_x=0.0, center_y=0.0, center_z=0.0,
                           size_x=25.0, size_y=25.0, size_z=25.0,
@@ -313,7 +336,11 @@ def main():
     print("AutoDock Vina Docking Workflow")
     print("=" * 60)
     
-    vina = VinaDocking(project_dir='/home/claude/adrb2_discovery')
+    # Get the script directory and construct project path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+
+    vina = VinaDocking(project_dir=project_dir)
     
     # Step 1: Prepare receptor
     print("\n--- STEP 1: RECEPTOR PREPARATION ---\n")

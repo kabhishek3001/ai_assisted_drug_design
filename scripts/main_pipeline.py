@@ -327,11 +327,12 @@ class ADRB2DrugDiscovery:
                 preparator.prepare(mol)
                 
                 # Write PDBQT
-                pdbqt_string = PDBQTWriterLegacy.write_string(preparator)
+                # For meeko >= 0.5, we should use preparator.write_pdbqt_string()
+                pdbqt_string = preparator.write_pdbqt_string()
                 
                 output_file = os.path.join(ligands_dir, f'ligand_{mol_id}.pdbqt')
                 with open(output_file, 'w') as f:
-                    f.write(pdbqt_string[0])
+                    f.write(pdbqt_string)
                 
                 prepared_files.append(output_file)
                 print(f"  Prepared: ligand_{mol_id}.pdbqt")
