@@ -1,0 +1,6 @@
+molecule_name,canonical_smiles,predicted_pchembl_value,predicted_affinity_type
+Propranolol,CC(C)NCC(O)COc1cccc2ccccc12,8.66119756140918,High
+Salbutamol,CC(C)(C)NCC(O)c1ccc(O)c(CO)c1,5.79556833333333,Medium
+Atenolol,CC(C)NCC(O)COc1ccc(CC(N)=O)cc1,5.7102999999999975,Medium
+Ethanol,CCO,5.5237357142857135,Medium
+Benzene,c1ccccc1,5.610769047619043,Medium
