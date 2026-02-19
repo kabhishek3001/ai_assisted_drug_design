@@ -1,0 +1,25 @@
+# AutoDock Vina Configuration File
+# ADRB2 Ligand Docking Configuration
+
+# Receptor file (prepared PDBQT format)
+receptor = docking/receptor.pdbqt
+
+# Grid box center coordinates (Angstroms)
+# Calculated from CAU ligand in 2RH1 PDB
+center_x = -29.5
+center_y = 9.2
+center_z = 6.9
+
+# Grid box size (search space dimensions in Angstroms)
+size_x = 25.0
+size_y = 25.0
+size_z = 25.0
+
+# Search exhaustiveness
+exhaustiveness = 8
+
+# Number of binding modes to generate
+num_modes = 9
+
+# Energy range for saved conformations (kcal/mol)
+energy_range = 3
