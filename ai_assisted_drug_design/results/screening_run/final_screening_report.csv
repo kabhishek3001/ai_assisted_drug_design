@@ -1,0 +1,6 @@
+molecule_name_x,canonical_smiles,ai_pchembl_value,docking_score_kcal_mol
+Carazolol,CC(C)NCC(O)COc1cccc2[nH]c3ccccc3c12,8.920241890968509,-9.55
+Alprenolol,CC(C)NCC(O)COc1ccccc1CC=C,8.470614989316239,-7.841
+Timolol,CC(C)(C)NCC(O)COc1nsnc1N2CCOCC2,8.418583333333324,-7.363
+Hexoprenaline,CC(C)NCC(O)c1ccc(O)c(O)c1 (duplicate),8.423382142857147,-7.308
+Isoprenaline,CC(C)NCC(O)c1ccc(O)c(O)c1,8.423382142857147,-7.252
