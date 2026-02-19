@@ -1,0 +1,6 @@
+molecule_name,canonical_smiles
+Propranolol,CC(C)NCC(O)COc1cccc2ccccc12
+Salbutamol,CC(C)(C)NCC(O)c1ccc(O)c(CO)c1
+Atenolol,CC(C)NCC(O)COc1ccc(CC(N)=O)cc1
+Ethanol,CCO
+Benzene,c1ccccc1
