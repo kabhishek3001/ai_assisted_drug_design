@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+rdkit
+joblib
+chembl_webresource_client
+meeko
+scipy
+pdbfixer
+openmm
